@@ -10,16 +10,25 @@ for index, row in df.iterrows():
     pdf.set_font(family="Arial", style="B", size=24)
     pdf.set_text_color(100,100,100)
     pdf.cell(w=0, h=24, txt=row["Topic"], align="L", ln=1)
-    pdf.line(8,26,180,26)
+    pdf.line(8,26,170,26)
 
-    pdf.ln(250)
+    y=36
+    for i in range(245):
+        pdf.ln(1)
+        pdf.line(5,y,200,y)
+        y=y+10
+
     pdf.set_font(family="Arial", size=12)
     pdf.set_text_color(100, 100, 100)
     pdf.cell(w=0, h=10, txt=row["Topic"], align="R", ln=1)
 
     for i in range(row["Pages"]-1):
         pdf.add_page()
-        pdf.ln(273)
+        y=15
+        for j in range(268):
+            pdf.ln(1)
+            pdf.line(5, y, 200, y)
+            y=y+10
         pdf.set_font(family="Arial", size=12)
         pdf.set_text_color(100, 100, 100)
         pdf.cell(w=0, h=10, txt=row["Topic"], align="R", ln=1)
